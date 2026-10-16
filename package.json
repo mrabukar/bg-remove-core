@@ -1,11 +1,8 @@
 {
-  "name": "@mrabukar/bg-remove-core",
-  "version": "0.1.2",
+  "name": "bg-remove-core",
+  "version": "0.1.0",
   "description": "Framework-independent, browser-side background removal core extracted from CutOut.",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

@@ -1,4 +1,4 @@
-# @mrabukar/bg-remove-core
+# bg-remove-core
 
 Framework-independent, browser-side background removal, extracted from the
 [CutOut](https://github.com/mrabukar/bg-remover) app. Runs ONNX inference
@@ -8,13 +8,13 @@ of the user's image.**
 ## Install
 
 ```bash
-npm install @mrabukar/bg-remove-core
+npm install bg-remove-core
 ```
 
 ## API
 
 ```ts
-import { removeBackground, validateImageFile } from "@mrabukar/bg-remove-core";
+import { removeBackground, validateImageFile } from "bg-remove-core";
 
 const validation = validateImageFile(file); // { valid, errorMessage }
 if (!validation.valid) {

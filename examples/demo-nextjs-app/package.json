@@ -2,7 +2,7 @@
   "name": "demo-nextjs-app",
   "version": "0.1.0",
   "private": true,
-  "description": "Minimal separate Next.js app demonstrating @mrabukar/bg-remove-core integrated into an existing image-upload flow.",
+  "description": "Minimal separate Next.js app demonstrating bg-remove-core integrated into an existing image-upload flow.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,7 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@mrabukar/bg-remove-core": "^0.1.0",
+    "bg-remove-core": "^0.1.0",
     "next": "^16.2.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"

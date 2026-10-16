@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { removeBackground, validateImageFile } from "@mrabukar/bg-remove-core";
+import { removeBackground, validateImageFile } from "bg-remove-core";
 
 /**
  * Stand-in for this project's *existing* upload handler (e.g. a call to its
