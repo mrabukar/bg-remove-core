@@ -2,7 +2,7 @@
   "name": "@mrabukar/bg-remove-core",
   "version": "0.1.0",
   "description": "Framework-independent, browser-side background removal core extracted from CutOut.",
-  "license": "AGPL-3.0-only",
+  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
