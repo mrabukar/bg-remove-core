@@ -1,6 +1,6 @@
 {
   "name": "bg-remove-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Browser-side AI image background removal for JavaScript and TypeScript using ONNX Runtime, WebAssembly and optional WebGPU. Process images locally without uploading them to a server.",
   "keywords": [
     "background-removal",
