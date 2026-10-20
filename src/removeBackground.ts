@@ -14,12 +14,13 @@ function toStage(key: string): ProgressInfo["stage"] {
  */
 export async function removeBackground(
   file: File | Blob,
-  options: RemoveBackgroundOptions = {}
+  options: RemoveBackgroundOptions = {},
 ): Promise<Blob> {
   const { onProgress } = options;
 
   // Dynamic import keeps the heavy ONNX/WASM bundle out of callers' initial chunk.
-  const { removeBackground: imglyRemoveBackground } = await import("@imgly/background-removal");
+  const { removeBackground: imglyRemoveBackground } =
+    await import("@imgly/background-removal");
 
   return imglyRemoveBackground(file, {
     progress: (key: string, current: number, total: number): void => {

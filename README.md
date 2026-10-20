@@ -1,9 +1,8 @@
 # bg-remove-core
 
-Framework-independent, browser-side background removal, extracted from the
-[CutOut](https://github.com/mrabukar/bg-remover) app. Runs ONNX inference
-entirely in the browser (WASM / optionally WebGPU) — **no server, no upload
-of the user's image.**
+Browser-side AI image background removal for JavaScript and TypeScript using ONNX Runtime, WebAssembly and optional WebGPU. Process images locally without uploading them to a server.
+
+Extracted from the [CutOut](https://github.com/mrabukar/bg-remover) app.
 
 ## Install
 
@@ -14,11 +13,21 @@ npm install bg-remove-core
 ## API
 
 ```ts
-import { removeBackground, validateImageFile } from "bg-remove-core";
+import {
+  detectTransparentBackground,
+  removeBackground,
+  validateImageFile,
+} from "bg-remove-core";
 
 const validation = validateImageFile(file); // { valid, errorMessage }
 if (!validation.valid) {
   // show validation.errorMessage
+}
+
+const transparency = await detectTransparentBackground(file);
+if (transparency.hasTransparentBackground) {
+  // Already a cutout. clearFraction is 0..1.
+  // Skip removeBackground, or call it anyway.
 }
 
 const resultBlob: Blob = await removeBackground(file, {
@@ -35,6 +44,14 @@ const url = URL.createObjectURL(resultBlob); // PNG with transparent background
 a PNG `Blob` with the background removed. `validateImageFile(file, options?)`
 checks MIME type (`image/png|jpeg|webp|gif` by default) and size (20 MB
 default max) before you bother processing.
+
+`detectTransparentBackground(file)` resolves to
+`{ hasTransparentBackground, clearFraction }`. JPEG is always opaque. PNG,
+WebP, and GIF are decoded in the browser and sampled down to a 128-pixel
+edge. `hasTransparentBackground` is true when at least 2% of those pixels
+have alpha below 32. A white backdrop or a checkerboard painted into the
+pixels is still opaque. This does not run the removal model, and
+`removeBackground` does not call it.
 
 ## Browser requirements
 

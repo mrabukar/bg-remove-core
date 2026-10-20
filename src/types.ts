@@ -16,3 +16,10 @@ export interface ValidationResult {
   readonly valid: boolean;
   readonly errorMessage: string;
 }
+
+export interface TransparencyReport {
+  /** True when at least 2% of sampled pixels are nearly clear (alpha below 32). */
+  readonly hasTransparentBackground: boolean;
+  /** Share of sampled pixels with alpha below 32, from 0 to 1. */
+  readonly clearFraction: number;
+}
